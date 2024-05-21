@@ -38,7 +38,7 @@ function reducer(state, { type, payload }){
       if (payload.digit === "0" && state.currentOperand === "0" ){ //// input digit == 0 and current digit == 0
         return state;
       };
-      if (payload.digit === "." && state.currentOperand.includes(".")) {  //input digit == "." and current digit already include "."
+      if (payload.digit === "." && state.currentOperand?.includes(".")) {  //input digit == "." and current digit already include "."
         return state;
       };
       // if (payload.digit === "." && state.currentOperand === "") {
