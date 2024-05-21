@@ -38,6 +38,15 @@ function reducer(state, { type, payload }){
         ...state,
         currentOperand : `${state.currentOperand || ""}${payload.digit}`,//takin cuurentoperand and adding on new digit on it(currentoperend + payload.digit)
       };
+    
+    
+    case ACTIONS.CLEAR:
+      return {}; 
+      /***
+       * return {};
+       * This line returns an empty object {}.
+       * Returning an empty object effectively resets the state to its initial form, meaning all properties of the state are cleared.
+       */
   }
 };
 
@@ -64,7 +73,7 @@ function App() {
         <div className="previous-display">{previousOperand} {operation}</div>
         <div className="current-display">{currentOperand}</div>
       </div>
-      <button className="span-two">AC</button>
+      <button className="span-two" onClick={() => dispatch({ type: ACTIONS.CLEAR})}>AC</button>  {/* only one button. no need of payload. */}
       <button>DEL</button>
 
       <button>÷</button>
@@ -84,7 +93,9 @@ function App() {
       <DigitButton digit="0" dispatch={dispatch} />
 
       <button className="span-two">=</button>
+      
    </div>
+  
 
    /*****Note****
     * dispatch={dispatch}:
